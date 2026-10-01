@@ -18,7 +18,7 @@ ahandatadj <- read.csv("Ahandietadj.csv")
 #rename columns of interest to match and select them
 ajapdatadj <- rename(ajapdatadj, ID = Ind., Month = month, Jar = JFBM, SL = SL..mm., Category = category, Vol = Volume..mm.3.)
 ahandatadj <- rename(ahandatadj, ID = Ind., Month = Mo., Jar = JFBM, SL = SL..mm., Category = category, Vol = Volume..mm.3.)
-ajapdatadj <- ajpadatadj %>% select(Species, Jar, ID, Month, SL, Category, Vol)
+ajapdatadj <- ajapdatadj %>% select(Species, Jar, ID, Month, SL, Category, Vol)
 ahandatadj <- select(ahandatadj, Species, Jar, ID, Month, SL, Category, Vol)
 
 
