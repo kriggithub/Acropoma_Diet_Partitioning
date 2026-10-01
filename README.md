@@ -2,7 +2,7 @@
 
 Analysis code for **trophic resource partitioning between two deep-sea glowbellies, *Acropoma hanedai* and *A. japonicum*, off southwestern Taiwan.**
 
-📄 Published in *Environmental Biology of Fishes*: [doi:10.1007/s10641-026-01814-y](https://link.springer.com/article/10.1007/s10641-026-01814-y)
+📄 Published in *Environmental Biology of Fishes* (2026), 109:43: [doi:10.1007/s10641-026-01814-y](https://link.springer.com/article/10.1007/s10641-026-01814-y)
 
 ![Diet composition by species and month](SpmVolBarcol.jpg)
 
@@ -43,6 +43,24 @@ install.packages(c("tidyverse", "glmmTMB", "multcomp", "vegan", "indicspecies",
                    "gt", "glue", "scales", "gridExtra"))
 ```
 
+## Citation
+
+If you use this code or data, please cite:
+
+> Ghedotti MJ, Riggin KL, Marsh MA, Bramlett SA, Pearson HD, Rodriguez GJ, Gruber JN, Egan JP, Voss KA (2026). Evidence of deep-sea trophic resource partitioning between the glowbellies *Acropoma hanedai* and *A. japonicum* near Southwestern Taiwan. *Environmental Biology of Fishes* 109:43. https://doi.org/10.1007/s10641-026-01814-y
+
+```bibtex
+@article{ghedotti2026acropoma,
+  title   = {Evidence of deep-sea trophic resource partitioning between the glowbellies {Acropoma hanedai} and {A. japonicum} near Southwestern Taiwan},
+  author  = {Ghedotti, Michael J. and Riggin, Kurt L. and Marsh, Milo A. and Bramlett, Sarah A. and Pearson, Hayden D. and Rodriguez, Gabriel J. and Gruber, Josephine N. and Egan, Joshua P. and Voss, Kristofor A.},
+  journal = {Environmental Biology of Fishes},
+  volume  = {109},
+  pages   = {43},
+  year    = {2026},
+  doi     = {10.1007/s10641-026-01814-y}
+}
+```
+
 ## Author
 
-**Kurt Riggin**: [GitHub](https://github.com/kriggithub) · [ORCID](https://orcid.org/0009-0004-4700-1251)
+**Kurt Riggin** (analysis code): [GitHub](https://github.com/kriggithub) · [ORCID](https://orcid.org/0009-0004-4700-1251)
