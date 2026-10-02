@@ -4,7 +4,7 @@ Analysis code for **trophic resource partitioning between two deep-sea glowbelli
 
 📄 Published in *Environmental Biology of Fishes* (2026), 109:43: [doi:10.1007/s10641-026-01814-y](https://link.springer.com/article/10.1007/s10641-026-01814-y)
 
-![Diet composition by species and month](SpmVolBarcol.jpg)
+![Diet composition by species and month](figures/SpmVolBarcol.jpg)
 
 *Diet composition by biovolume. Both species feed mostly on teleost fish, but in May* A. japonicum *shifts heavily toward crustaceans.*
 
@@ -27,16 +27,16 @@ Analysis code for **trophic resource partitioning between two deep-sea glowbelli
 
 | File | Description |
 |---|---|
-| `fishdatacleaning.R` | Cleans and merges the raw per-species diet data |
+| `R/fishdatacleaning.R` | Cleans and merges the raw per-species diet data |
 | `FishDataAnalysis.Rmd` | Full analysis: models, PERMANOVA, IRI, niche metrics and figures |
 | `FishDataAnalysis.html` | Rendered analysis report |
-| `Ahandietadj.csv`, `Ajapdietadj.csv` | Raw stomach-content data for each species |
-| `fishdat1.csv`, `fishdat2.csv`, `fishdat1sum.csv` | Cleaned analysis datasets |
-| `*.png`, `*.jpg` | Figures and tables (`bw` = greyscale, `col` = colour versions) |
+| `data/Ahandietadj.csv`, `data/Ajapdietadj.csv` | Raw stomach-content data for each species |
+| `data/fishdat1.csv`, `data/fishdat2.csv`, `data/fishdat1sum.csv` | Cleaned analysis datasets |
+| `figures/*.png`, `figures/*.jpg` | Figures and tables (`bw` = greyscale, `col` = colour versions) |
 
 ## Reproducing the analysis
 
-Open `AcropomaResearch.Rproj` in RStudio, install the packages below and knit `FishDataAnalysis.Rmd`.
+Open `AcropomaResearch.Rproj` in RStudio, install the packages below and knit `FishDataAnalysis.Rmd`. Paths are relative to the project root: data are read from `data/` and figures are written to `figures/`; `R/fishdatacleaning.R` builds the cleaned datasets from the raw ones (uncomment its `write.csv()` calls to regenerate the files).
 
 ```r
 install.packages(c("tidyverse", "glmmTMB", "multcomp", "vegan", "indicspecies",

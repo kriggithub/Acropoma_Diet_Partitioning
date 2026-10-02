@@ -8,8 +8,8 @@ output:
 ---
 ```{r, include = F}
 # setwd("/cloud/project/GhedottiVossResearch")
-fishdat2 <- read.csv("fishdat2.csv")
-fishdat1sum <- read.csv("fishdat1sum.csv")
+fishdat2 <- read.csv("data/fishdat2.csv")
+fishdat1sum <- read.csv("data/fishdat1sum.csv")
 library(tidyverse)
 library(ggplot2)
 library(glmmTMB)
@@ -66,8 +66,8 @@ SMSLBoxplotcol <- ggplot(fishdat2, aes(x = Species, y = SL, fill = Month)) +
 
 
 
-#ggsave(filename = "SpeciesMonthSLBoxplotbw.jpg", plot = SMSLBoxplotbw, width = 8, height = 6, dpi = 300)
-#ggsave(filename = "SpeciesMonthSLBoxplotcol.jpg", plot = SMSLBoxplotcol, width = 8, height = 6, dpi = 300)
+#ggsave(filename = "figures/SpeciesMonthSLBoxplotbw.jpg", plot = SMSLBoxplotbw, width = 8, height = 6, dpi = 300)
+#ggsave(filename = "figures/SpeciesMonthSLBoxplotcol.jpg", plot = SMSLBoxplotcol, width = 8, height = 6, dpi = 300)
 
 ```
 
@@ -549,10 +549,10 @@ pvolspmcol <- ggplot(fishbardat, aes(fill = Category, y = Vol, x = interaction_c
 
 
 
-#ggsave(filename = "SpmOccurBarbw.jpg", plot = poccurspm, width = 8, height = 6, dpi = 300)
-#ggsave(filename = "SpmOccurBarcol.jpg", plot = poccurspmcol, width = 8, height = 6, dpi = 300)
-#ggsave(filename = "SpmVolBarbw.jpg", plot = pvolspm, width = 8, height = 6, dpi = 300)
-#ggsave(filename = "SpmVolBarcol.jpg", plot = pvolspmcol, width = 8, height = 6, dpi = 300)
+#ggsave(filename = "figures/SpmOccurBarbw.jpg", plot = poccurspm, width = 8, height = 6, dpi = 300)
+#ggsave(filename = "figures/SpmOccurBarcol.jpg", plot = poccurspmcol, width = 8, height = 6, dpi = 300)
+#ggsave(filename = "figures/SpmVolBarbw.jpg", plot = pvolspm, width = 8, height = 6, dpi = 300)
+#ggsave(filename = "figures/SpmVolBarcol.jpg", plot = pvolspmcol, width = 8, height = 6, dpi = 300)
 
 ```
 
@@ -990,8 +990,8 @@ summary(fishvol.glht, test = adjusted(type = "none"))
 ```{r}
 library(tidyverse)
 
-itemdata <- read.csv(file = "fishdat1.csv")
-countdata <- read.csv(file = "fishdat2.csv")
+itemdata <- read.csv(file = "data/fishdat1.csv")
+countdata <- read.csv(file = "data/fishdat2.csv")
 countdata <- countdata %>% mutate(animalcount = ifelse(animal > 0, 1, 0))
 countdata <- countdata %>% mutate(crustaceancount = ifelse(crustacean > 0, 1, 0))
 countdata <- countdata %>% mutate(fishcount = ifelse(fish > 0, 1, 0))
@@ -1362,8 +1362,8 @@ allCountsTable_wide <- allCountsTable_long %>%
 allCountsTable <- tableGrob(allCountsTable_wide)
 
 
-ggsave("allIRItable.png", allIRItable)
-#ggsave("allCountsTable.png", allCountsTable)
+ggsave("figures/allIRItable.png", allIRItable)
+#ggsave("figures/allCountsTable.png", allCountsTable)
 
 
 
@@ -1377,7 +1377,7 @@ ggsave("allIRItable.png", allIRItable)
 library(vegan)
 library(dplyr)
 
-fishCountData <- read.csv("fishdat2.csv")
+fishCountData <- read.csv("data/fishdat2.csv")
 fishCountData <- fishCountData %>% mutate(animalcount = ifelse(animal > 0, 1, 0))
 fishCountData <- fishCountData %>% mutate(crustaceancount = ifelse(crustacean > 0, 1, 0))
 fishCountData <- fishCountData %>% mutate(fishcount = ifelse(fish > 0, 1, 0))
@@ -1416,7 +1416,7 @@ japAccum <- specaccum(japAccumData, method = "random")
 
 
 # create single figure
-png("SpeciesAccumulation.png", width = 1200, height = 1800, res = 200)
+png("figures/SpeciesAccumulation.png", width = 1200, height = 1800, res = 200)
 layout(matrix(c(1,2, 3,4, 5,6), ncol=2, byrow=TRUE))
 par(mar = c(3, 1, 1, 1), oma = c(4, 4, 3, 0), mgp = c(2, 0.5, 0))
 
@@ -1476,7 +1476,7 @@ library(tidyverse)
 library(gridExtra)
 library(grid)
 
-fishCountData <- read.csv("fishdat2.csv")
+fishCountData <- read.csv("data/fishdat2.csv")
 fishCountData <- fishCountData %>% mutate(animalcount = ifelse(animal > 0, 1, 0))
 fishCountData <- fishCountData %>% mutate(crustaceancount = ifelse(crustacean > 0, 1, 0))
 fishCountData <- fishCountData %>% mutate(fishcount = ifelse(fish > 0, 1, 0))
@@ -1542,8 +1542,8 @@ nicheBVol <- grid.arrange(
 
 
 
-ggsave("nicheBpa.png", nicheBpa, bg = "white", width = 4, height = 2)
-ggsave("nicheBVol.png", nicheBVol, bg = "white", width = 4, height = 2)
+ggsave("figures/nicheBpa.png", nicheBpa, bg = "white", width = 4, height = 2)
+ggsave("figures/nicheBVol.png", nicheBVol, bg = "white", width = 4, height = 2)
 
 
 
@@ -1575,8 +1575,8 @@ nicheOvol <- grid.arrange(
 
 
 
-ggsave("nicheOpa.png", nicheOpa, bg = "white", width = 11, height = 2)
-ggsave("nicheOVol.png", nicheOvol, bg = "white", width = 11, height = 2)
+ggsave("figures/nicheOpa.png", nicheOpa, bg = "white", width = 11, height = 2)
+ggsave("figures/nicheOVol.png", nicheOvol, bg = "white", width = 11, height = 2)
 
 
 

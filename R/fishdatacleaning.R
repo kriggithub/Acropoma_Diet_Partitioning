@@ -7,10 +7,10 @@
 #load in packages & datasets (ignore old data)
 library(tidyverse)
 #setwd("/cloud/project/GhedottiVossResearch")
-ajapdatadj <- read.csv("Ajapdietadj.csv")
-ahandatadj <- read.csv("Ahandietadj.csv")
-  #ajapdat <- read.csv("Ajapdiet.csv")
-  #ahandat <- read.csv("Ahandiet.csv")
+ajapdatadj <- read.csv("data/Ajapdietadj.csv")
+ahandatadj <- read.csv("data/Ahandietadj.csv")
+  #ajapdat <- read.csv("data/Ajapdiet.csv")
+  #ahandat <- read.csv("data/Ahandiet.csv")
 
 
 
@@ -101,8 +101,8 @@ ahanmult <- ahandatadj %>%
 
 
 #####
-#write.csv(ajapmult, file = "Ajap_Multiple.csv")
-#write.csv(ahanmult, file = "Ahan_Multiple.csv")
+#write.csv(ajapmult, file = "data/Ajap_Multiple.csv")
+#write.csv(ahanmult, file = "data/Ahan_Multiple.csv")
 ##### Reconcile issues first (resolved)
 
 
@@ -143,10 +143,10 @@ fishdat2 <- relocate(fishdat2, SClass, .after = SL)
 
 #Check fishdat2 for all unique IDs and write new files
 length(unique(fishdat2$FishID)) #170
-  #write.csv(fishdat2, file = "fishdat2.csv")
-  #write.csv(fishdat1sum, file = "fishdat1sum.csv")
+  #write.csv(fishdat2, file = "data/fishdat2.csv")
+  #write.csv(fishdat1sum, file = "data/fishdat1sum.csv")
 
-#write.csv(fishdat1, file = "fishdat1.csv")
+#write.csv(fishdat1, file = "data/fishdat1.csv")
 
 
 
