@@ -4,7 +4,7 @@
 
 
 
-# Load in packages & datasets (adj data separated individual fish with same label)
+# Load in packages & datasets (adjusted data fixed separated individual fish with same label names)
 library(tidyverse)
 # setwd("/PATH_HERE")
 ajapdata <- read.csv("Ajapdietadj.csv")
