@@ -11,6 +11,7 @@ The exact code behind the paper is archived on Zenodo ([doi:10.5281/zenodo.23901
 
 ![Diet composition by species and month](figures/SpmVolBarcol.jpg)
 
+📄 **[Read the full analysis report](https://kriggithub.github.io/Acropoma_Diet_Partitioning/FishDataAnalysis.html)**
 
 ## Motivation
 
