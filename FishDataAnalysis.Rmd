@@ -1555,7 +1555,7 @@ nicheOvol <- grid.arrange(
 
 ```
 
-```{r}
+```{r, echo = F}
 knitr::include_graphics(c("figures/nicheBpa.png", "figures/nicheBVol.png",
                           "figures/nicheOpa.png", "figures/nicheOVol.png"))
 ```
