@@ -254,7 +254,7 @@ fishBCdat2 <- fishBCdat %>% select(animal:mollusk) %>% sqrt()
 
 
 BCmat <- vegdist(fishBCdat2)
-
+set.seed(123)
 
 permanova <- adonis2(BCmat ~ SL + Species + Month + SL:Species + SL:Month + Species:Month + SL:Species:Month, data = fishBCdat, by = "terms")
 
