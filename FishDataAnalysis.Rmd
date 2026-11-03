@@ -15,10 +15,13 @@ library(tidyverse)
 library(ggplot2)
 library(glmmTMB)
 library(multcomp)
+library(indicspecies)
 library(vegan)
 library(glue)
 library(scales)
 library(gt)
+library(gridExtra)
+library(grid)
 library(conflicted)
 conflicts_prefer(dplyr::select, dplyr::filter, dplyr::lag)
 ```
@@ -964,13 +967,13 @@ summary(fishvol.glht, test = adjusted(type = "none"))
 
 
 
+IRI Tables
 
-
-```{r, include = F}
+```{r, echo = F}
 
 
 # IRI Calculations
-library(tidyverse)
+
 
 itemdata <- read.csv(file = "data/fish_data_long.csv")
 countdata <- read.csv(file = "data/fish_data_wide.csv")
@@ -1278,8 +1281,6 @@ jmCountsTable <- tibble(
 
 
 
-library(gridExtra)
-library(grid)
 
 # Add group labels to each table for clarity
 hmIRItable$Group <- "Hanedai May"
@@ -1306,8 +1307,6 @@ allIRItable <- tableGrob(allIRItable)
 allCountsTable <- bind_rows(hmCountsTable, hfCountsTable, jfCountsTable, jmCountsTable)
 
 
-library(dplyr)
-library(tidyr)
 
 # First combine all four "Counts" tables
 allCountsTable <- bind_rows(hmCountsTable, hfCountsTable, jfCountsTable, jmCountsTable) %>%
@@ -1347,16 +1346,17 @@ allCountsTable <- tableGrob(allCountsTable_wide)
 #ggsave("figures/allIRItable.png", allIRItable)
 ##ggsave("figures/allCountsTable.png", allCountsTable)
 
+allCountsTable_wide
+
 ```
 
 
 
-```{r, include = F}
+```{r, echo = F}
 
 
 ## Species Accumulation Curves
-library(vegan)
-library(dplyr)
+
 
 fishCountData <- read.csv("data/fish_data_wide.csv")
 fishCountData <- fishCountData %>% mutate(animalcount = ifelse(animal > 0, 1, 0))
@@ -1440,24 +1440,18 @@ mtext(expression(italic(paste("Acropoma hanedai"))),
       side = 3, outer = TRUE, line = 0, at = 0.25, cex = 1.2, font = 3)
 mtext(expression(italic(paste("Acropoma japonicum"))),
       side = 3, outer = TRUE, line = 0, at = 0.75, cex = 1.2, font = 3)
+invisible(dev.off())
 
-dev.off()
 
+knitr::include_graphics("figures/SpeciesAccumulation.png")
 
 
 ```
 
-
+Niche Breadth and Overlap
 
 ```{r, include = F}
 
-## Niche Breadth and Overlap
-
-library(indicspecies)
-# Niche Breadth
-library(tidyverse)
-library(gridExtra)
-library(grid)
 
 fishCountData <- read.csv("data/fish_data_wide.csv")
 fishCountData <- fishCountData %>% mutate(animalcount = ifelse(animal > 0, 1, 0))
@@ -1473,6 +1467,7 @@ nichePaMatrix <- fishCountData %>%
     crustacean = sum(crustaceancount, na.rm = T),
     fish = sum(fishcount, na.rm = T),
     mollusk = sum(molluskcount, na.rm = T),
+    .groups = "drop"
   ) %>% 
   as.data.frame()
 
@@ -1494,6 +1489,7 @@ nicheVolMatrix <- fishCountData %>%
     crustacean = sum(crustacean, na.rm = T),
     fish = sum(fish, na.rm = T),
     mollusk = sum(mollusk, na.rm = T),
+    .groups = "drop"
   ) %>% 
   as.data.frame()
 
@@ -1513,7 +1509,7 @@ nicheBVol <- tableGrob(nicheBVol)
 
 nicheBpa <- grid.arrange(
   nicheBpa,
-  top = textGrob("Niche Breadth (Occurance)", 
+  top = textGrob("Niche Breadth (Occurence)", 
                  gp = gpar(fontsize = 14, fontface = "bold"))
 )
 
@@ -1546,7 +1542,7 @@ nicheOvol <- tableGrob(nicheOvol)
 
 nicheOpa <- grid.arrange(
   nicheOpa,
-  top = textGrob("Niche Overlap (Occurance)", 
+  top = textGrob("Niche Overlap (Occurence)", 
                  gp = gpar(fontsize = 14, fontface = "bold"))
 )
 
@@ -1557,9 +1553,13 @@ nicheOvol <- grid.arrange(
 )
 
 
-
-#ggsave("figures/nicheOpa.png", nicheOpa, bg = "white", width = 11, height = 2)
-#ggsave("figures/nicheOVol.png", nicheOvol, bg = "white", width = 11, height = 2)
 ```
+
+```{r}
+knitr::include_graphics(c("figures/nicheBpa.png", "figures/nicheBVol.png",
+                          "figures/nicheOpa.png", "figures/nicheOVol.png"))
+```
+
+
 
 
