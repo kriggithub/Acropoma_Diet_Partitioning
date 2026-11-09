@@ -2,7 +2,7 @@
 
 Analysis code for **trophic resource partitioning between two deep-sea glowbellies, *Acropoma hanedai* and *A. japonicum*, off southwestern Taiwan.** 
 
-📄 Published in *Environmental Biology of Fishes* (2026), 109:43: [doi:10.1007/s10641-026-01814-y](https://link.springer.com/article/10.1007/s10641-026-01814-y)
+Published in *Environmental Biology of Fishes* (2026), 109:43: [doi:10.1007/s10641-026-01814-y](https://link.springer.com/article/10.1007/s10641-026-01814-y)
 
 
 The exact code behind the paper is archived on Zenodo ([doi:10.5281/zenodo.23901160](https://doi.org/10.5281/zenodo.23901160)) and tagged [`v1.0-paper`](https://github.com/kriggithub/Acropoma_Diet_Partitioning/releases/tag/v1.0-paper). `main` has been cleaned up since; any changes to results are noted below.
@@ -11,7 +11,7 @@ The exact code behind the paper is archived on Zenodo ([doi:10.5281/zenodo.23901
 
 ![Diet composition by species and month](figures/SpmVolBarcol.jpg)
 
-📄 **[Read the full analysis report](https://kriggithub.github.io/Acropoma_Diet_Partitioning/FishDataAnalysis.html)**
+**[Read the full analysis report](https://kriggithub.github.io/Acropoma_Diet_Partitioning/FishDataAnalysis.html)**
 
 ## Motivation
 
